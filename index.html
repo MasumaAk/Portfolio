@@ -57,6 +57,49 @@
 
   .num { font-family: 'IBM Plex Mono', monospace; }
 
+  /* Left sidebar nav, shown on wider screens instead of the top tab bar */
+  .sidebar {
+    display: none;
+  }
+  @media (min-width: 901px) {
+    .topbar { display: none; }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      padding: 32px 20px;
+      padding-top: calc(32px + env(safe-area-inset-top, 0px));
+      background: var(--panel);
+      border-right: 1px solid var(--grid);
+      overflow-y: auto;
+    }
+    .sidebar .brand {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+    .sidebar a {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 10px 0;
+      border-left: 2px solid transparent;
+      padding-left: 12px;
+      margin-left: -12px;
+    }
+    .sidebar a:hover, .sidebar a:focus-visible { color: var(--ink); }
+    .sidebar a.active { color: var(--blue); border-left-color: var(--blue); }
+    .wrap { margin-left: 200px; }
+    footer { margin-left: 200px; }
+  }
+
   /* Top bar with tab nav, mimicking a BI tool's page-tab strip */
   .topbar {
     position: sticky;
@@ -230,6 +273,17 @@
 </head>
 <body>
 
+<nav class="sidebar">
+  <span class="brand">Masuma Akter</span>
+  <a href="#overview" class="active">Overview</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Toolkit</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 <div class="topbar">
   <div class="topbar-inner">
     <span class="brand">Masuma Akter</span>
@@ -240,6 +294,7 @@
       <a href="#skills">Toolkit</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </div>
@@ -260,7 +315,7 @@
       <div class="kpi"><span class="val num">B2B</span><span class="lbl">RFP / RFQ / tender experience</span></div>
     </div>
 
-    <div class="contact-row">
+    <div class="contact-row" id="contact">
       <a href="mailto:masuma.akterksu@gmail.com">masuma.akterksu@gmail.com</a>
       <a href="https://linkedin.com/in/masumaa100">LinkedIn</a>
       <a href="https://github.com/MasumaAk">GitHub</a>
